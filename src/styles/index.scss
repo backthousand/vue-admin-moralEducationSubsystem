@@ -76,3 +76,23 @@ a:hover {
 .app-container {
   padding: 20px;
 }
+
+// 全局筛选部分样式
+.app-filter-container {
+  min-height: 100px;
+  margin-bottom: 10px;
+  .el-input,
+  .el-select {
+    margin-right: 15px;
+    margin-bottom: 5px;
+  }
+}
+
+// 全局表格样式
+.app-table-controller {
+  margin-bottom: 20px;
+}
+
+.app-table-pagination {
+  margin-top: 20px;
+}
