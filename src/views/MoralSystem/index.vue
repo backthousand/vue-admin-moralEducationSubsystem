@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name:{{ name }}</div>
-    <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div>
+    <div class="dashboard-text">{{ name }}，您好！欢迎您登录德育系统</div>
+    <div class="dashboard-text">您的权限是:<span v-for="role in roles" :key="role">{{ role }}</span></div>
   </div>
 </template>
 

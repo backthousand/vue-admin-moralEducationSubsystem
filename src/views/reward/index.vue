@@ -1,50 +1,31 @@
-<template>
-  <div class="app-container">
-    <el-form ref="form" :model="form" label-width="120px">
-      <el-form-item label="Activity name">
-        <el-input v-model="form.name"/>
+<template><div>
+  <el-card class="box-card">
+    <div slot="header" class="clearfix">
+      <span>奖惩信息公告</span>
+      <el-button style="float: right; padding: 3px 0" type="text" @click="dialogIPVisible = true">编辑</el-button>
+    </div>
+    <div v-for="o in 4" :key="o" class="text item">
+      {{ o + "xxx同学,在XXX比赛中获，，，奖项" }}
+    </div>
+  </el-card>
+  <!-- 弹出窗口：编写内容 -->
+  <el-dialog :visible.sync="dialogIPVisible" :close-on-click-modal="false" title="编辑奖惩信息">
+    <el-form label-width="80px">
+      <el-form-item :prop="'0'" label="标题">
+        <el-input />
       </el-form-item>
-      <el-form-item label="Activity zone">
-        <el-select v-model="form.region" placeholder="please select your zone">
-          <el-option label="Zone one" value="shanghai"/>
-          <el-option label="Zone two" value="beijing"/>
-        </el-select>
+
+      <el-form-item :prop="'1'" label="内容">
+        <el-input type="textarea"/>
       </el-form-item>
-      <el-form-item label="Activity time">
-        <el-col :span="11">
-          <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%;"/>
-        </el-col>
-        <el-col :span="2" class="line">-</el-col>
-        <el-col :span="11">
-          <el-time-picker v-model="form.date2" type="fixed-time" placeholder="Pick a time" style="width: 100%;"/>
-        </el-col>
-      </el-form-item>
-      <el-form-item label="Instant delivery">
-        <el-switch v-model="form.delivery"/>
-      </el-form-item>
-      <el-form-item label="Activity type">
-        <el-checkbox-group v-model="form.type">
-          <el-checkbox label="Online activities" name="type"/>
-          <el-checkbox label="Promotion activities" name="type"/>
-          <el-checkbox label="Offline activities" name="type"/>
-          <el-checkbox label="Simple brand exposure" name="type"/>
-        </el-checkbox-group>
-      </el-form-item>
-      <el-form-item label="Resources">
-        <el-radio-group v-model="form.resource">
-          <el-radio label="Sponsor"/>
-          <el-radio label="Venue"/>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="Activity form">
-        <el-input v-model="form.desc" type="textarea"/>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
-        <el-button @click="onCancel">Cancel</el-button>
-      </el-form-item>
+
     </el-form>
-  </div>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="dialogIPVisible = false">取 消</el-button>
+      <el-button type="primary" @click="dialogIPVisible = false">确 定</el-button>
+    </div>
+  </el-dialog>
+</div>
 </template>
 
 <script>
@@ -60,7 +41,8 @@ export default {
         type: [],
         resource: '',
         desc: ''
-      }
+      },
+      dialogIPVisible: false
     }
   },
   methods: {

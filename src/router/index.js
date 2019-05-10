@@ -54,7 +54,6 @@ export const constantRouterMap = [
   {
     path: '/period',
     component: Layout,
-    redirect: '/period/menu1',
     name: 'Period',
     meta: {
       title: '周期性考核',
@@ -62,49 +61,16 @@ export const constantRouterMap = [
     },
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/period/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/period/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/period/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/period/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/period/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/period/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'education',
+        component: () => import('@/views/period/education/index'), // Parent router-view
+        name: 'Education',
+        meta: { title: '本学期德育情况', icon: 'example' }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/period/menu2/index'),
-        meta: { title: 'menu2' }
+        path: 'honor',
+        name: 'Honor',
+        component: () => import('@/views/period/honor/index'),
+        meta: { title: '荣誉统计', icon: 'example' }
       }
     ]
   },
@@ -123,12 +89,16 @@ export const constantRouterMap = [
   },
 
   {
-    path: 'contact',
+    path: '/user',
     component: Layout,
+    redirect: '/user/index',
+    name: 'user',
     children: [
       {
-        path: 'http://localhost:9528/#/MoralSystem',
-        meta: { title: '联系我们', icon: 'link' }
+        path: 'user',
+        name: 'User',
+        component: () => import('@/views/user/index'),
+        meta: { title: '用户管理', icon: 'nested' }
       }
     ]
   },
